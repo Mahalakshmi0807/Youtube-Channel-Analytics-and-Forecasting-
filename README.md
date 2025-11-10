@@ -14,6 +14,9 @@ Using a dataset of **1000 videos** containing **20+ key metrics** such as *views
 
 ## 🎯 Project Objectives
 
+To build a real-time, interactive Power BI dashboard that helps YouTube creators analyze their video performance — including views, engagement, revenue, and audience behavior — and forecast future trends.
+
+This dashboard converts raw YouTube data into insights that guide better content planning and growth strategies.
 - To analyze YouTube video performance and identify key engagement factors.  
 - To visualize content trends, traffic sources, and monetization metrics through Power BI.  
 - To build a machine learning model that predicts video performance levels (Low, Medium, High).  
@@ -52,69 +55,166 @@ Using a dataset of **1000 videos** containing **20+ key metrics** such as *views
 ## ❓ Business Questions / KPIs
 
 The dashboard answers key business questions such as:
+📊 What are the total views, likes, comments, and revenue?
 
-1. Which content categories attract the highest number of views and engagement?  
-2. Which traffic source contributes most to overall revenue?  
-3. How do Shorts compare with long-form videos in terms of views and monetization?  
-4. What is the relationship between impressions, CTR, and total views?  
-5. How does sponsorship impact engagement and revenue?  
-6. What factors most influence high-performing videos (based on ML analysis)?  
-7. What if impressions increased by 10–30% — how much would revenue grow?
+🎯 What is the average engagement rate (likes + comments + shares ÷ views)?
 
----
+🏆 Which are the Top 10 performing videos?
 
-## 🔄 Process Workflow
+🧩 Which categories generate the most views and engagement?
 
-1. **Data Preprocessing (Python):**  
-   - Cleaned missing values, standardized formats, and removed duplicates.  
-   - Created new features — *engagement rate, watch rate, views per minute, title length, etc.*
+🚦 Which traffic source brings the most audience?
 
-2. **Exploratory Data Analysis (EDA):**  
-   - Used Python (Pandas, Matplotlib, Seaborn) to identify trends and correlations.  
-   - Examined patterns between category, traffic source, and engagement metrics.
+📈 How have views and revenue changed month by month?
 
-3. **Feature Engineering:**  
-   - Derived new columns to enhance model accuracy (RPM ratio, average view duration, etc.)
+🔮 Can we forecast future views for the next few months?
+ 
+🤩 Which traffic source contributes most to overall revenue?
+   
+🎥 How do Shorts compare with long-form videos in terms of views and monetization?  
 
-4. **Machine Learning Modeling:**  
-   - Built **Random Forest** and **XGBoost** models to predict video performance category (Low / Medium / High).  
-   - Evaluated model using Accuracy, F1-score, RMSE, and feature importance via SHAP.
+💎 What is the relationship between impressions, CTR, and total views?  
 
-5. **Power BI Dashboard Creation:**  
-   - Designed an interactive Power BI dashboard using cleaned dataset.  
-   - Created KPI cards, charts, and forecasting visualizations with DAX measures.  
-   - Integrated a **What-If Simulator** for revenue prediction.
+🛍️ How does sponsorship impact engagement and revenue?  
+
+📽️ What factors most influence high-performing videos (based on ML analysis)?
+
+🔍 What if impressions increased by 10–30% — how much would revenue grow?
 
 ---
 
-## 📊 Power BI Dashboard Components
+## ⚙️ Process 🔄 (Step-by-Step)
 
-### **Dashboard Pages**
-1. **Overview Page**
-   - KPI Cards: Total Views, Total Revenue, Avg RPM, Engagement Rate  
-   - Time Series: Views and Revenue over time  
-   - Combo Chart: Revenue vs RPM Trend
+### 🪜 Step 1: Import the dataset
 
-2. **Content Performance Page**
-   - Donut Charts:  
-     - Views Share by Category  
-     - Revenue Share by Traffic Source  
-     - Shorts vs Long-form Views Split  
-   - Bar Chart: Category vs Estimated Revenue  
-   - Scatter Plot: Views vs Watch Rate (size = Subs Gained)
+* Open **Power BI Desktop**
+* Click **Get Data → Text/CSV → youtube_videos_1000.csv → Load**
 
-3. **Model Insights Page**
-   - Predictions Table (Low / Medium / High)  
-   - Confusion Matrix for model accuracy  
-   - Feature Importance Bar Chart (Top 10 factors influencing performance)
+---
 
-4. **Forecast & What-If Page**
-   - Impression % Increase Slider  
-   - Adjusted Revenue Card and Comparison Chart
+### 🪜 Step 2: Data cleaning
+
+* Change data types:
+
+  * `published_date` → **Date**
+  * `views`, `likes`, `comments`, `shares`, `revenue` → **Whole Number / Decimal**
+* Rename columns for clarity if needed.
+
+---
+
+### 🪜 Step 3: Create DAX Measures
+
+Go to **Modeling → New Measure** and add these formulas:
+
+```dax
+Total Views = SUM('youtube_videos_1000'[views])
+Total Likes = SUM('youtube_videos_1000'[likes])
+Total Comments = SUM('youtube_videos_1000'[comments])
+Total Shares = SUM('youtube_videos_1000'[shares])
+Total Revenue = SUM('youtube_videos_1000'[estimated_revenue_usd])
+
+Engagement Rate =
+DIVIDE(
+    [Total Likes] + [Total Comments] + [Total Shares],
+    [Total Views],
+    0
+)
+```
+
+---
+
+### 🪜 Step 4: Create a Date Table
+
+Go to **Modeling → New Table** and paste:
+
+```dax
+Date =
+ADDCOLUMNS(
+    CALENDAR(
+        MIN('youtube_videos_1000'[published_date]),
+        MAX('youtube_videos_1000'[published_date]) + 90
+    ),
+    "Year", YEAR([Date]),
+    "Month", FORMAT([Date], "MMM"),
+    "YearMonth", FORMAT([Date], "YYYY-MM")
+)
+```
+
+Then:
+
+* Go to **Model view**
+* Connect `Date[Date]` → `youtube_videos_1000[published_date]`
+* Right-click **Date Table** → Mark as Date Table → select `[Date]`
+
+---
+
+### 🪜 Step 5: Create Visuals
+
+#### 🔹 KPIs (Cards)
+
+* Total Views
+* Total Likes
+* Total Comments
+* Engagement Rate (%)
+* Total Revenue ($)
+
+#### 🔹 Charts
+
+1. **Bar Chart** → Top 10 videos by Views
+2. **Pie Chart** → Views by Category
+3. **Line Chart** → Views by Month (Date table)
+4. **Donut Chart** → Traffic Source by Views
+5. **Table** → All videos with columns:
+
+   * Title
+   * Category
+   * Views
+   * Likes
+   * Comments
+   * Estimated Revenue
+   * Engagement Rate
+
+#### 🔹 Forecast
+
+* Select your **Views by Month** line chart
+* Go to **Analytics Pane → Forecast → Add Forecast**
+* Set Forecast length = 3 months
+
+---
+
+## 🧾 Dashboard Layout
+
+| Section | Visual                                    | Purpose                          |
+| ------- | ----------------------------------------- | -------------------------------- |
+| Header  | Text “YouTube Channel Analysis Dashboard” | Title                            |
+| Row 1   | KPI Cards                                 | Key performance metrics          |
+| Row 2   | Bar + Pie Charts                          | Top videos + category comparison |
+| Row 3   | Line + Donut Charts                       | Monthly trend + Traffic source   |
+| Row 4   | Table                                     | Detailed video-level data        |
+| Row 5   | Forecast                                  | Predict future performance       |
+
+🎨 **Design tips:**
+
+* Use white cards, light background, shadows
+* Use red (YouTube color) for highlights
+* Add YouTube logo on the top corner
+
 
 ---
 
 ## 🧠 Project Insights
+
+
+After creating the dashboard, we can see:
+
+1. 🔝 **Top 10 videos** bring almost **80% of total views**
+2. 📚 **Educational videos** have the **highest engagement**
+3. 💬 Higher likes and comments lead to **higher revenue**
+4. 🌍 **Suggested Videos** and **YouTube Search** are main traffic sources
+5. 📈 Forecast shows **steady growth** for next months
+6. ⏱️ Shorter videos (under 5 mins) have **higher engagement rate**
+
+We get the information that are,
 
 - **Education and Tech** categories generated the highest total views and revenue.  
 - **Suggested and Browse** traffic sources were the most effective for audience reach.  
@@ -140,8 +240,7 @@ This project not only enhances analytical skills but also showcases the integrat
 | Category | Tools / Libraries |
 |-----------|------------------|
 | **Data Cleaning & Analysis** | Python, Pandas, NumPy |
-| **Visualization** | Power BI, Matplotlib, Seaborn |
-| **Machine Learning** | Scikit-learn, XGBoost, SHAP |
+| **Visualization** | Power BI |
 | **Dashboard / BI** | Power BI Desktop & Service |
 | **Environment** | Jupyter Notebook, VS Code |
 | **Version Control** | Git, GitHub |
