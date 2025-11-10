@@ -245,13 +245,14 @@ This project not only enhances analytical skills but also showcases the integrat
 | **Environment** | Jupyter Notebook, VS Code |
 | **Version Control** | Git, GitHub |
 
+
+**Focus Areas:** Data Visualization • Predictive Analytics • Realtime Dashboards • BI Reporting  
+
 ---
 
 ## 📦 Deliverables
 
-- 📘 `youtube_videos_1000.csv` — Dataset  
-- 🧮 `01_EDA_and_FeatureEngineering.ipynb` — Data exploration notebook  
-- 🤖 `02_Modeling_Predict_Views.ipynb` — Machine learning notebook  
+- 📘 `youtube_videos_1000.csv` — Dataset   
 - 📊 `powerbi_blueprint.md` — Dashboard setup and DAX documentation  
 - 🗂️ `presentation.pptx` — Final project slides  
 - 📘 `README.md` — Full documentation  
