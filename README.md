@@ -1,7 +1,3 @@
-# Youtube-Channel-Analytics-and-Forecasting-
-This project,YouTube Channel Analysis and Forecasting,combines Power BI and Python to analyze,visualize,and predict YouTube video performance.It provides insights for audience engagement and monetization.The objective is to help creators identify the factors that lead to high-performing videos and forecast future success based on historical data.
-<h1 align="center">🎥 YouTube Channel Analysis and Forecasting 📊</h1>
-
 <p align="center">
   <b>Power BI Dashboard + Machine Learning Model</b> <br>
   Analyze, visualize, and forecast YouTube video performance using a 1000-row dataset with 20+ channel metrics.
