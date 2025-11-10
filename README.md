@@ -1,4 +1,4 @@
-<p align="center">
+<h1 align="center">🎥 YouTube Channel Analysis and Forecasting 📊</h1><p align="center">
   <b>Power BI Dashboard + Machine Learning Model</b> <br>
   Analyze, visualize, and forecast YouTube video performance using a 1000-row dataset with 20+ channel metrics.
 </p>
