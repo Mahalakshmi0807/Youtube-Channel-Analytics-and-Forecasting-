@@ -232,15 +232,6 @@ We get the information that are,
 
 ---
 
-## 💡 Conclusion
-
-The **YouTube Channel Analysis and Forecasting** project demonstrates how data analytics, visualization, and machine learning can work together to improve decision-making in digital media.  
-By leveraging **Power BI dashboards** and **predictive models**, creators can identify what drives success, optimize upload strategies, and plan future content more effectively.  
-
-This project not only enhances analytical skills but also showcases the integration of **business intelligence tools with AI-driven forecasting** — turning YouTube data into actionable insights for channel growth.
-
----
-
 ## ⚙️ Tools and Technologies
 
 | Category | Tools / Libraries |
@@ -259,9 +250,19 @@ This project not only enhances analytical skills but also showcases the integrat
 ## 📦 Deliverables
 
 - 📘 `youtube_videos_1000.csv` — Dataset   
-- 📊 `powerbi_blueprint.md` — Dashboard setup and DAX documentation  
-- 🗂️ `presentation.pptx` — Final project slides  
+- 📊 `Youtube Analytics Dashboard.pbix` — Whole datas and Dashboard in powerbi  
+- 🗂️ `YT channel Analytics Dashboard screenshot` — Screenshot of the Dashboard
+- 📊 `Project report` — The whole report of the project
 - 📘 `README.md` — Full documentation  
+
+---
+
+## 💡 Conclusion
+
+The **YouTube Channel Analysis and Forecasting** project demonstrates how data analytics, visualization, and machine learning can work together to improve decision-making in digital media.  
+By leveraging **Power BI dashboards** and **predictive models**, creators can identify what drives success, optimize upload strategies, and plan future content more effectively.  
+
+This project not only enhances analytical skills but also showcases the integration of **business intelligence tools with AI-driven forecasting** — turning YouTube data into actionable insights for channel growth.
 
 ---
 
