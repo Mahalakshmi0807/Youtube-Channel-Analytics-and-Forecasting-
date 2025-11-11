@@ -56,6 +56,8 @@ This dashboard converts raw YouTube data into insights that guide better content
 
 https://github.com/Mahalakshmi0807/Youtube-Channel-Analytics-and-Forecasting-/blob/main/YT%20channel%20Analytics%20Dashboard%20Screenshot.jpg 
 
+![YT Analytics Dashboard screenshot](https://github.com/user-attachments/assets/2fbe78a1-8e0e-4174-aa5b-83f13c9b5aad)
+
 ## ❓ Business Questions / KPIs
 
 The dashboard answers key business questions such as:
