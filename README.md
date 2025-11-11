@@ -52,6 +52,10 @@ This dashboard converts raw YouTube data into insights that guide better content
 
 ---
 
+## Dashboard Screenshot 
+
+
+
 ## ❓ Business Questions / KPIs
 
 The dashboard answers key business questions such as:
