@@ -27,7 +27,7 @@ This dashboard converts raw YouTube data into insights that guide better content
 
 ## 🧾 Dataset Used
 
-- **Dataset Name:** `youtube_videos_1000.csv`  
+- **Dataset Name:**   youtube_videos_1000 
 - **Rows:** 1000  **Columns:** 20+  **Primary Key:** `video_id`  
 
 | Column Name | Description |
