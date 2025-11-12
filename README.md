@@ -269,7 +269,7 @@ This project not only enhances analytical skills but also showcases the integrat
 ## 🪄 Author
 **Maha**  
 📍 Villupuram, Tamil Nadu  
-💼 Final Year BCA Student | MBA Aspirant | Data & Analytics Enthusiast  
+💼 BCA Graduate | MBA Aspirant | Data & Analytics Enthusiast  
 📧 maharagupathi05@gmail.com
 
 ---
